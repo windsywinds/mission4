@@ -72,13 +72,13 @@ gitclone https://github.com/windsywinds/mission4.git
 npm i
 ```
 
-3. Start MongoDB Compass, create .env file, add your Azure variables and MongoDB localhost address
+3. Create .env file, add your Azure variables
 
 ```sh
 VITE_API_KEY=< API_KEY >
 VITE_ENDPOINT_NAME=< https://your-end-point.cognitiveservices.azure.com >
 ```
-4. Seed the database via the CLI. Alternatively you can use "node server/cli/commands.cjs seedPath" to define your own path. A full list of commands can be found using "node server/cli/commands.cjs help", or you can use the short cut "npm cli < command >"
+4. Start MongoDB Compass and seed the database via the CLI with the below command in vscode terminal. Alternatively you can use the "seedPath" command to define your own path. A full list of commands can be found using "node server/cli/commands.cjs help", or you can use the short cut "npm cli < command >"
 
 ```sh
 npm run seed
