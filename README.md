@@ -66,7 +66,7 @@ A service that can be called to analyse an image of a car and return a descripti
 gitclone https://github.com/windsywinds/mission4.git
 ```
 
-2. Install packages
+2. <h2>Install packages</h2>
 
 ```sh
 npm i
