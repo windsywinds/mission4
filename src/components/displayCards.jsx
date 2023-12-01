@@ -1,15 +1,9 @@
 import React, { useState, useEffect } from "react";
-import carDb from "../data/carDb.cjs";
 import findCarType from "./services/findCarType";
 import findCarColor from "./services/findCarColor";
 
-export const DisplayCards = ({ userImage, data, displayMsg }) => {
+export const DisplayCards = ({ userImage, data, displayMsg, carDb }) => {
   const [displayCardsMsg, setDisplayCardsMsg] = useState();
-  useEffect(() => {
-    if (data && !data.tagsResult.values.some((item) => item.name === "car")) {
-      setDisplayCardsMsg("Sorry, no car found in image, try another?");
-    }
-  });
 
   if (!data || !data.tagsResult.values.some((item) => item.name === "car")) {
     return (
@@ -58,7 +52,7 @@ export const DisplayCards = ({ userImage, data, displayMsg }) => {
 
   return (
     <div className="flex flex-col md:flex-row items-center justify-center ">
-      {data && userImage ? (
+      {carDb && data && userImage ? (
         <div className={`grid ${gridColumns}  gap-4 pb-12`}>
           <CarCard inputCar={inputCar} />
           {carDb
@@ -128,8 +122,10 @@ export const MatchCard = ({
   carPrice,
 }) => {
   if (!inputCar.carColor || !inputCar.carType) {
-    return <div>{displayMsg}</div>;
+    return <div>No Matches Found!</div>;
   }
+  console.log("A match was made")
+  console.log(imgUrl)
 
   return (
     <div className="h-full flex bg-slate-200 rounded-xl text-slate-900  overflow-hidden border-2 border-slate-800 drop-shadow-[0_15px_15px_rgba(0,0,0,0.85)]">

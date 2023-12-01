@@ -8,17 +8,17 @@
 <br />
 <div align="center">
 
-<h3 align="center">Mission 3.1</h3>
+<h3 align="center">Mission 4</h3>
 
   <p align="center">
-    Deploying an image recognition service via a pipeline to Azure
+    Use MongoDB and create a CLI to seed cars into a database. These cars can then be used to find matches for the matching service.
     <br />
-    <a href="https://github.com/windsywinds/m2-azure/"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/windsywinds/mission4/"><strong>Explore the docs »</strong></a>
     <br />
     <br />
     <a href="https://delightful-island-0f7ba390f.4.azurestaticapps.net/">Demo</a>
     ·
-    <a href="https://github.com/windsywinds/m2-azure/issues">Report Bug</a>
+    <a href="https://github.com/windsywinds/mission4/issues">Report Bug</a>
     ·
     
 </div>
@@ -51,6 +51,8 @@ A service that can be called to analyse an image of a car and return a descripti
 ### Built With
 
 - React JS
+- MongoDB
+- Express JS
 - Tailwind CSS
 - Microsoft Azure
 
@@ -61,7 +63,7 @@ A service that can be called to analyse an image of a car and return a descripti
 1. Clone repo
 
 ```sh
-gitclone https://github.com/windsywinds/m2-azure.git
+gitclone https://github.com/windsywinds/mission4.git
 ```
 
 2. Install packages
@@ -70,18 +72,34 @@ gitclone https://github.com/windsywinds/m2-azure.git
 npm i
 ```
 
-3. Create .env file and add your Azure variables
+3. Start MongoDB Compass, create .env file, add your Azure variables and MongoDB localhost address
 
 ```sh
-VITE_API_KEY=
-VITE_ENDPOINT_NAME=
+VITE_API_KEY=< API_KEY >
+VITE_ENDPOINT_NAME=< https://your-end-point.cognitiveservices.azure.com >
+```
+4. Seed the database via the CLI. Alternatively you can use "node server/cli/commands.cjs seedPath" to define your own path. A full list of commands can be found using "node server/cli/commands.cjs help", or you can use the short cut "npm cli <command>"
+
+```sh
+npm run seed
+```
+or
+```sh
+node server/cli/commands.cjs seed ./server/data/seed.json
 ```
 
-4. Run dev server
+5. Run the API to access the database
+
+```sh
+npm run server
+```
+
+6. Run the Vite developement server in a new terminal and open your browser to the directed localhost address to interact with the front end car recognition and database matching service
 
 ```sh
 npm run dev
 ```
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -89,19 +107,19 @@ npm run dev
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 
 [vite-url]: https://vitejs.dev/
-[contributors-shield]: https://img.shields.io/github/contributors/windsywinds/m2-azure.svg?style=for-the-badge
-[contributors-url]: https://github.com/windsywinds/m2-azure/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/windsywinds/m2-azure.svg?style=for-the-badge
-[forks-url]: https://github.com/windsywinds/m2-azure/network/members
-[stars-shield]: https://img.shields.io/github/stars/windsywinds/m2-azure.svg?style=for-the-badge
-[stars-url]: https://github.com/windsywinds/m2-azure/stargazers
-[issues-shield]: https://img.shields.io/github/issues/windsywinds/m2-azure.svg?style=for-the-badge
-[issues-url]: https://github.com/windsywinds/m2-azure/issues
-[license-shield]: https://img.shields.io/github/license/windsywinds/m2-azure.svg?style=for-the-badge
-[license-url]: https://github.com/windsywinds/m2-azure/blob/master/LICENSE.txt
+[contributors-shield]: https://img.shields.io/github/contributors/windsywinds/mission4.svg?style=for-the-badge
+[contributors-url]: https://github.com/windsywinds/mission4/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/windsywinds/mission4.svg?style=for-the-badge
+[forks-url]: https://github.com/windsywinds/mission4/network/members
+[stars-shield]: https://img.shields.io/github/stars/windsywinds/mission4.svg?style=for-the-badge
+[stars-url]: https://github.com/windsywinds/mission4/stargazers
+[issues-shield]: https://img.shields.io/github/issues/windsywinds/mission4.svg?style=for-the-badge
+[issues-url]: https://github.com/windsywinds/mission4/issues
+[license-shield]: https://img.shields.io/github/license/windsywinds/mission4.svg?style=for-the-badge
+[license-url]: https://github.com/windsywinds/mission4/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/windsor-sam/
-[product-screenshot]: https://github.com/windsywinds/m2-azure/blob/main/src/assets/screenshot.jpg
+[product-screenshot]: https://github.com/windsywinds/mission4/blob/main/src/assets/screenshot.jpg
 [Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
 [Next-url]: https://nextjs.org/
 [React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB

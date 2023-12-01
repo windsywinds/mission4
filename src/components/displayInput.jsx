@@ -1,8 +1,7 @@
 import { useState } from "react";
 import getData from "./services/getData";
-import carDb from "../data/carDb.cjs";
 
-export const DisplayInput = ({ updateData, updateImage, updateDisplayMsg }) => {
+export const DisplayInput = ({ updateData, updateImage, updateDisplayMsg, carDb }) => {
   const [image, setImage] = useState(
     "https://www.toyota.co.nz/globalassets/new-vehicles/camry/2021/camry-zr-axhzr-nm1-axrzr-nm1/clear-cuts/updated-clear-cuts/camry-zr-eclipse.png",
   );
