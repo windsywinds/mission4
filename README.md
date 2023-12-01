@@ -66,13 +66,13 @@ A service that can be called to analyse an image of a car and return a descripti
 gitclone https://github.com/windsywinds/mission4.git
 ```
 
-2. <h2>Install packages</h2>
+<h4>2. Install packages</h4>
 
 ```sh
 npm i
 ```
 
-3. Create .env file, add your Azure variables
+<h4>3. Create .env file, add your Azure variables</h4>
 
 ```sh
 VITE_API_KEY=< API_KEY >
