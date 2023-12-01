@@ -78,7 +78,7 @@ npm i
 VITE_API_KEY=< API_KEY >
 VITE_ENDPOINT_NAME=< https://your-end-point.cognitiveservices.azure.com >
 ```
-4. Seed the database via the CLI. Alternatively you can use "node server/cli/commands.cjs seedPath" to define your own path. A full list of commands can be found using "node server/cli/commands.cjs help", or you can use the short cut "npm cli <command>"
+4. Seed the database via the CLI. Alternatively you can use "node server/cli/commands.cjs seedPath" to define your own path. A full list of commands can be found using "node server/cli/commands.cjs help", or you can use the short cut "npm cli < command >"
 
 ```sh
 npm run seed
