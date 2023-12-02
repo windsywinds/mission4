@@ -55,21 +55,6 @@ const findCarByAny = async (keyword) => {
         await client.close();
     }    
 }
-const findCarByType = async (type) => {
-    const client = new MongoClient('mongodb://localhost:27017/')
-    try {
-        await client.connect();
-        const database = client.db('turnersDB');
-        const collection = database.collection('cars');
-        const search = new RegExp(type, 'i') //'i' indicates this is case insensitive
-    const car = await collection.find({
-        carType: search}).toArray();
-        console.info(car);
-        console.info(`${car.length} matches`)
-    } finally {
-        await client.close();
-    }
-}
 const listAllCars = async () => { 
     const client = new MongoClient('mongodb://localhost:27017/')
     try {
@@ -115,4 +100,4 @@ const wipeDatabase = async (answer) => {
 }
 
 
-module.exports = { seedCars, addCar, removeCar, listAllCars, findCarByAny, findCarByType, wipeDatabase }
+module.exports = { seedCars, addCar, removeCar, listAllCars, findCarByAny, wipeDatabase }

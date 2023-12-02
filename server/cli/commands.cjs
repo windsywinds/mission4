@@ -1,6 +1,6 @@
 const program = require('commander');
 const { prompt } = require('inquirer')
-const { seedCars, addCar, removeCar, listAllCars, findCarByAny, findCarByType, wipeDatabase } = require('./clifunctions.cjs')
+const { seedCars, addCar, removeCar, listAllCars, findCarByAny, wipeDatabase } = require('./clifunctions.cjs')
 
 program
     .version('1.0.0')
@@ -56,15 +56,14 @@ program
     .action(() => {
         console.info('Welcome to the Database CLI')
         console.info('All commands must be stated after the command file path')
-        console.info('Example: node server/cli/commands.cjs seedPath')
-        console.info('The following is a list of commands available:')
+        console.info('Example: node server/cli/commands.cjs seedPath or npm run cli seedPath')
+        console.info('The following is a list of commands available with descriptions:')
         console.info('seedPath - You will be prompted for a file path to load into the database')
         console.info('seed <filepath> - enter the file path from your root directory to load the database')
         console.info('add - you will be prompted for the details of a car to add to the database')
-        console.info('remove <_Id> - enter the entry id of a car yuo wish to remove from the database')
+        console.info('remove <_Id> - enter the entry id of a car you wish to remove from the database')
         console.info('list - list all vehicles in the database')
-        console.info('findany <keyword> - provide a keyword to search the database by')
-        console.info('findtype <carType> - provide a vehicle type to search the database by')
+        console.info('find <keyword> - provide a single keyword to search the database for matches, e.g. green, toyota, sedan')
         console.info('wipe - Delete all entries in the database. You will be asked to confirm Y/N')
     });
 
@@ -103,16 +102,10 @@ program
     .action(() => listAllCars())
 
 program 
-    .command('findany <keyword>')
+    .command('find <keyword>')
     .alias('f')
     .description('Find a car by keyword')
     .action(keyword => findCarByAny(keyword));
-
-program 
-    .command('findtype <type>')
-    .alias('t')
-    .description('Find a car by body type')
-    .action(type => findCarByType(type));
 
 program
     .command('wipe')

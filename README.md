@@ -60,7 +60,7 @@ A service that can be called to analyse an image of a car and return a descripti
 
 ### Installation
 
-1. Clone repo
+<h4>1. Clone repo</h4>
 
 ```sh
 gitclone https://github.com/windsywinds/mission4.git
@@ -78,7 +78,7 @@ npm i
 VITE_API_KEY=< API_KEY >
 VITE_ENDPOINT_NAME=< https://your-end-point.cognitiveservices.azure.com >
 ```
-4. Start MongoDB Compass and seed the database via the CLI with the below command in vscode terminal. Alternatively you can use the "seedPath" command to define your own path. A full list of commands can be found using "node server/cli/commands.cjs help", or you can use the short cut "npm cli < command >"
+<h4>4. Start MongoDB Compass and seed the database via the CLI with the below script or command in terminal.</h4> Alternatively you can use the "seedPath" command to define your own path. A full list of commands can be found using "node server/cli/commands.cjs help", or you can use the short cut "npm run cli <i>command</i>" e.g. "npm run cli help"
 
 ```sh
 npm run seed
@@ -88,13 +88,13 @@ or
 node server/cli/commands.cjs seed ./server/data/seed.json
 ```
 
-5. Run the API to access the database
+<h4>5. Run the API to access the database</h4>
 
 ```sh
 npm run server
 ```
 
-6. Run the Vite developement server in a new terminal and open your browser to the directed localhost address to interact with the front end car recognition and database matching service
+<h4>6. Run the Vite developement server in a new terminal.</h4> Open your browser to the directed localhost address to interact with the front end car recognition and database matching service
 
 ```sh
 npm run dev
