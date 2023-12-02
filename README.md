@@ -46,12 +46,12 @@
 
 ## About The Project
 
-A service that can be called to analyse an image of a car and return a description of the vehicle.
+A service that can be called to analyse an image of a car use the the description of the vehicle to find matches in a local database of similar vehicles.
 
 ### Built With
 
 - React JS
-- MongoDB
+- MongoDB + Compass
 - Express JS
 - Tailwind CSS
 - Microsoft Azure
@@ -60,19 +60,19 @@ A service that can be called to analyse an image of a car and return a descripti
 
 ### Installation
 
-<h4>1. Clone repo</h4>
+<h4>1. Clone repo.</h4>
 
 ```sh
 gitclone https://github.com/windsywinds/mission4.git
 ```
 
-<h4>2. Install packages</h4>
+<h4>2. Install packages.</h4>
 
 ```sh
 npm i
 ```
 
-<h4>3. Create .env file, add your Azure variables</h4>
+<h4>3. In a .env file, add your Azure variables.</h4>
 
 ```sh
 VITE_API_KEY=< API_KEY >
@@ -88,13 +88,13 @@ or
 node server/cli/commands.cjs seed ./server/data/seed.json
 ```
 
-<h4>5. Run the API to access the database</h4>
+<h4>5. Run the API to access the database.</h4>
 
 ```sh
 npm run server
 ```
 
-<h4>6. Run the Vite developement server in a new terminal.</h4> Open your browser to the directed localhost address to interact with the front end car recognition and database matching service
+<h4>6. Run the Vite developement server in a new terminal instance.</h4> Open your browser to the directed localhost address to interact with the front end car recognition and database matching service
 
 ```sh
 npm run dev
