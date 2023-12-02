@@ -4,9 +4,7 @@ import getRandom from "./services/getRandom";
 
 export const DisplayInput = ({ updateData, updateImage, updateDisplayMsg }) => {
 
-  const [image, setImage] = useState(
-    "https://www.toyota.co.nz/globalassets/new-vehicles/camry/2021/camry-zr-axhzr-nm1-axrzr-nm1/clear-cuts/updated-clear-cuts/camry-zr-eclipse.png",
-  );
+  const [image, setImage] = useState("");
 
   //we  want to ensure we manage the user changing the input field so this will update the image useState
   const handleOnChange = (e) => {
@@ -50,9 +48,18 @@ export const DisplayInput = ({ updateData, updateImage, updateDisplayMsg }) => {
   const onRandomClick = async (e) => {
     e.preventDefault();
     try {
-      const randomCar = await getRandom()
-      setImage(randomCar);
-      onButtonClick(e);
+      updateDisplayMsg("Loading...");
+      const image = await getRandom()
+      setImage(image)
+      try {
+        const parsedData = await getData(image);
+        updateImage(image)
+        updateData(parsedData);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+        updateDisplayMsg("There was an error.")
+      }
+
     } catch (error) {
       console.error("Error fetching data:", error)
       setImage('No image found')

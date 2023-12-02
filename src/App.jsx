@@ -7,7 +7,7 @@ function App() {
   //We can use setState to define the state of changing variables
   const [data, setData] = useState();
   const [image, setImage] = useState(
-    "https://www.toyota.co.nz/globalassets/new-vehicles/camry/2021/camry-zr-axhzr-nm1-axrzr-nm1/clear-cuts/updated-clear-cuts/camry-zr-eclipse.png",
+    "",
   );
   const [displayMsg, setDisplayMsg] = useState(
     "Let us find your perfect car by entering an image link!",

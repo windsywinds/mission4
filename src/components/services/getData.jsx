@@ -21,7 +21,7 @@ async function getData(image) {
       `${AzureEndpoint}computervision/imageanalysis:analyze?api-version=2023-02-01-preview&features=tags,caption,denseCaptions,objects`,
       fetchOptions,
     );
-    console.error("Fetch complete");
+    console.log("Fetch complete");
     const parsedData = await response.json();
     return parsedData;
   } catch (error) {
