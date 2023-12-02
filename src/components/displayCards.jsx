@@ -21,7 +21,8 @@ export const DisplayCards = ({ userImage, data, displayMsg }) => {
     fetchCarData();
   }, []);
 
-  if (!data || !data.tagsResult.values.some((item) => item.name === "car")) {
+  if (!data || !data.tagsResult || !data.tagsResult.values.some((item) => item.name === "car")) {
+    
     return (
       <div>
         {displayCardsMsg ? (
@@ -34,7 +35,7 @@ export const DisplayCards = ({ userImage, data, displayMsg }) => {
   }
 
   //define some of our parsed data to varibales before using it
-  const imgTitle = data.captionResult.text.split(" ");
+  const imgTitle = data.captionResult.text.split(" ").slice(0, 3);
   const tagNames = data.tagsResult.values.map((item) => item.name);
 
   //send our data to some functions to identify the car's type and colour
@@ -44,7 +45,7 @@ export const DisplayCards = ({ userImage, data, displayMsg }) => {
   //store the cars details so we can use it to run a match and display
   const inputCar = {
     carImage: userImage,
-    carTitle: data.captionResult.text,
+    carTitle: "A" + " " + tagColor + " " + tagCar, //combine some varibales to make the car name more accurate
     carType: tagCar,
     carColor: tagColor,
   };
@@ -116,7 +117,7 @@ export const CarCard = ({ inputCar }) => {
               inputCar.carType.slice(1)}
           </ul>
           <ul>
-            Car Colour:{" "}
+            Colour:{" "}
             {inputCar.carColor.charAt(0).toUpperCase() +
               inputCar.carColor.slice(1)}
           </ul>
@@ -140,8 +141,6 @@ export const MatchCard = ({
   if (!inputCar.carColor || !inputCar.carType) {
     return <div>No Matches Found!</div>;
   }
-  console.log("A match was made")
-  console.log(imgUrl)
 
   return (
     <div className="h-full flex bg-slate-200 rounded-xl text-slate-900  overflow-hidden border-2 border-slate-800 drop-shadow-[0_15px_15px_rgba(0,0,0,0.85)]">

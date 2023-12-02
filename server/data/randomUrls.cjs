@@ -1,27 +1,11 @@
 module.exports = [
     {
       imgUrl:
-        "https://www.carsized.com/resources/subaru/legacy/sw/2009/sm_254134151_subaru-legacy-2009-side-view_4x.png"
-    },
-    {
-      imgUrl:
         "https://www.carsized.com/resources/honda/civic/d/2011/sl_244118112_honda-civic-2011-side-view_4x.png"
     },
     {
       imgUrl:
         "https://www.toyota.co.nz/globalassets/new-vehicles/camry/2021/camry-zr-axhzr-nm1-axrzr-nm1/clear-cuts/updated-clear-cuts/camry-zr-eclipse.png"
-    },
-    {
-      imgUrl:
-        "https://www.carsized.com/resources/toyota/corolla/d-eu/2018/sm_240125142_toyota-corolla-2018-side-view_4x.png"
-    },
-    {
-      imgUrl:
-        "https://c8.alamy.com/comp/EN0CP7/license-available-at-maximimagescom-2015-chevrolet-bolt-ev-concept-EN0CP7.jpg"
-    },
-    {
-      imgUrl:
-        "https://www.carsized.com/resources/mitsubishi/mirage/d/2016/sl_250099084_mitsubishi-mirage-2016-side-view_4x.png"
     },
     {
       imgUrl:

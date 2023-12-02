@@ -8,6 +8,9 @@ function findCarColor(tagNames, imgTitle) {
     "yellow",
     "silver",
     "gold",
+    "grey",
+    "brown",
+    "purple",
   ];
   try {
     for (const tag of tagNames) {

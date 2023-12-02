@@ -20,14 +20,13 @@ function findCarType(tagNames) {
     "mid-size car",
   ];
 
-  //This logic should is working but the issue lays with Azure tags not accuratly identifying the correct vehicle type. This would likely need a custom model trained
+  //This logic is working but the issue lays with Azure tags not accuratly identifying the correct vehicle type. This would likely need a custom model trained to resolve
   let matchingCar = "unknown";
   try {
     for (const tag of tagNames) {
       const foundCar = carTypesFull.find((car) => car === tag);
       if (foundCar) {
         matchingCar = foundCar;
-        console.log(matchingCar)
         break;
       }
     }
@@ -42,8 +41,10 @@ function findCarType(tagNames) {
     matchingCar = "sedan";
   } else if (matchingCar === "coupe" || matchingCar === "compact") {
     matchingCar = "hatchback";
-  } else if (matchingCar === "family car") {
+  } else if (matchingCar === "family car" || matchingCar === "station wagon") {
     matchingCar = "wagon";
+  } else if (matchingCar === "pick up truck" || matchingCar === "truck" || matchingCar === "off road" || matchingCar === "all trail") {
+    matchingCar = "suv";
   }
   return matchingCar;
 }
