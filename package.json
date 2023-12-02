@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "server": "node server/server.cjs",
+    "server": "nodemon server/server.cjs",
     "seed": "node server/cli/commands.cjs seed ./server/data/seed.json",
     "cli": "node server/cli/commands.cjs",
     "dev": "vite",

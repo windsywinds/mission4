@@ -2,8 +2,24 @@ import React, { useState, useEffect } from "react";
 import findCarType from "./services/findCarType";
 import findCarColor from "./services/findCarColor";
 
-export const DisplayCards = ({ userImage, data, displayMsg, carDb }) => {
+export const DisplayCards = ({ userImage, data, displayMsg }) => {
   const [displayCardsMsg, setDisplayCardsMsg] = useState();
+  const [carDb, setCarDbData] = useState([]);
+
+  useEffect(() => {
+    // Fetch car data from backend server as soon as the display cards are loaded so that the data can be used to match
+    const fetchCarData = async () => {
+      try {
+        const response = await fetch('http://localhost:8001/cardatabase');
+        const carDbData = await response.json();
+        setCarDbData(carDbData);
+      } catch (error) {
+        console.error("Error fetching car data:", error);
+      }
+    };
+
+    fetchCarData();
+  }, []);
 
   if (!data || !data.tagsResult.values.some((item) => item.name === "car")) {
     return (

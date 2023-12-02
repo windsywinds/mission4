@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const carSchema = require("../models/carSchema.cjs");
 
 // Connection to MongoDB
-const dbUrl = "mongodb://localhost:27017/carcli";
+const dbUrl = "mongodb://localhost:27017/turnersDB";
 mongoose.connect(dbUrl, { useNewUrlParser: true, useUnifiedTopology: true });
 
 // Create a model based on the schema

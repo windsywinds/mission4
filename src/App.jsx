@@ -6,7 +6,6 @@ import { DisplayInput } from "./components/displayInput";
 function App() {
   //We can use setState to define the state of changing variables
   const [data, setData] = useState();
-  const [carDb, setCarDbData] = useState([]);
   const [image, setImage] = useState(
     "https://www.toyota.co.nz/globalassets/new-vehicles/camry/2021/camry-zr-axhzr-nm1-axrzr-nm1/clear-cuts/updated-clear-cuts/camry-zr-eclipse.png",
   );
@@ -25,20 +24,6 @@ function App() {
     setDisplayMsg(newMsg);
   };
 
-  useEffect(() => {
-    // Fetch car data from backend server
-    const fetchCarData = async () => {
-      try {
-        const response = await fetch('http://localhost:8001/cardatabase');
-        const carDbData = await response.json();
-        setCarDbData(carDbData);
-      } catch (error) {
-        console.error("Error fetching car data:", error);
-      }
-    };
-
-    fetchCarData();
-  }, []);
 
   return (
     <div className="bg-[#0b0f51] text-stone-200 min-h-screen w-full font-inter flex flex-col items-center">
@@ -48,15 +33,11 @@ function App() {
         </h1>
       </div>
 
-      <DisplayInput
-        updateData={updateData}
-        updateImage={updateImage}
-        updateDisplayMsg={updateDisplayMsg}
-        carDb={carDb}
+      <DisplayInput updateData={updateData} updateImage={updateImage} updateDisplayMsg={updateDisplayMsg}
       />
 
       {/* Start of results area */}
-      <DisplayCards userImage={image} data={data} displayMsg={displayMsg} carDb={carDb} />
+      <DisplayCards userImage={image} data={data} displayMsg={displayMsg}  />
     </div>
   );
 }

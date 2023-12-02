@@ -1,7 +1,9 @@
 import { useState } from "react";
 import getData from "./services/getData";
+import getRandom from "./services/getRandom";
 
-export const DisplayInput = ({ updateData, updateImage, updateDisplayMsg, carDb }) => {
+export const DisplayInput = ({ updateData, updateImage, updateDisplayMsg }) => {
+
   const [image, setImage] = useState(
     "https://www.toyota.co.nz/globalassets/new-vehicles/camry/2021/camry-zr-axhzr-nm1-axrzr-nm1/clear-cuts/updated-clear-cuts/camry-zr-eclipse.png",
   );
@@ -43,11 +45,18 @@ export const DisplayInput = ({ updateData, updateImage, updateDisplayMsg, carDb 
     }
   };
 
-  const onRandomClick = (e) => {
-    const randomIndex = Math.floor(Math.random() * carDb.length);
-    const randomCar = carDb[randomIndex];
-    setImage(randomCar.imgUrl);
-    onButtonClick(e);
+  //If the user clicks the button for a random car, this will call the getRandom function to return an image
+  //from the api, and then also click to run a match using onButtonClick 
+  const onRandomClick = async (e) => {
+    e.preventDefault();
+    try {
+      const randomCar = await getRandom()
+      setImage(randomCar);
+      onButtonClick(e);
+    } catch (error) {
+      console.error("Error fetching data:", error)
+      setImage('No image found')
+    }
   }
 
   return (

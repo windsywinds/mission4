@@ -3,6 +3,7 @@ const cors = require("cors")
 const express = require("express");
 const landingRoute = require('./routes/landing.cjs')
 const cardatabase = require('./routes/carDatabase.cjs')
+const getrandom = require('./routes/getRandom.cjs')
 
 
 const app = express();
@@ -13,6 +14,7 @@ app.use(cors());
 
 
 app.get('/', landingRoute);
+app.use('/getrandom', getrandom);
 app.use('/cardatabase', cardatabase);
 
 
