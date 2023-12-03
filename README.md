@@ -46,7 +46,7 @@
 
 ## About The Project
 
-A service that can be called to analyse an image of a car use the the description of the vehicle to find matches in a local database of similar vehicles.
+A service that can be called to analyse an image of a car using the description of the vehicle to find matches in a local database of similar vehicles.
 
 ### Built With
 
