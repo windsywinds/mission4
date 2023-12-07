@@ -79,7 +79,13 @@ VITE_API_KEY=< API_KEY >
 VITE_ENDPOINT_NAME=< https://your-end-point.cognitiveservices.azure.com >
 ```
 
-<h4>4. Ensure MongoDB is installed, and seed the database via the CLI with the below script or command in terminal.</h4> Alternatively you can use the "seedPath" command to define your own path. A full list of commands can be found using "node server/cli/commands.cjs help", or you can use the short cut "npm run cli <i>command</i>" e.g. "npm run cli help"
+<h4>4. Create the CLI Link</h4>
+
+```sh
+npm link
+```
+
+<h4>5. Ensure MongoDB community is installed, and seed the database via the script or CLI</h4> Alternatively you can use the "seedPath" command to define your own file path. A full list of commands can be found using "cardb help"
 
 ```sh
 npm run seed
@@ -88,16 +94,16 @@ npm run seed
 or
 
 ```sh
-node server/cli/commands.cjs seed ./server/data/seed.json
+cardb seed ./server/data/seed.json
 ```
 
-<h4>5. Run the API to access the database.</h4>
+<h4>6. Run the API to access the database.</h4>
 
 ```sh
 npm run server
 ```
 
-<h4>6. Run the Vite developement server in a new terminal instance.</h4> Open your browser to the directed localhost address to interact with the front end car recognition and database matching service
+<h4>7. Run the Vite developement server in a new terminal instance.</h4> Open your browser to the directed localhost address to interact with the front end car recognition and database matching service
 
 ```sh
 npm run dev
