@@ -5,7 +5,12 @@ import getRandom from "./services/getRandom";
 export const DisplayInput = ({ updateData, updateImage, updateDisplayMsg, updateLoading }) => {
   const [image, setImage] = useState("");
   const [selectedFile, setSelectedFile] = useState();
+  const [cursorLoading, setCursorLoading] = useState(false)
 
+  const handleCursor = (state) => {
+    setCursorLoading(state);
+    updateLoading(state);
+  }
   //we  want to ensure we manage the user changing the input field so this will update the image useState
   const handleOnChange = (e) => {
     setImage(e.target.value);
@@ -24,7 +29,7 @@ export const DisplayInput = ({ updateData, updateImage, updateDisplayMsg, update
       // Prevent default stops the buttons from acting like a default button as we are using it asynchronously
       e.preventDefault();
       updateData(); // clear the data to reset display messages
-      updateLoading(true)//set the cursor loading animation
+      handleCursor(true)//set the cursor loading animation
       updateDisplayMsg("Loading..."); // Let the user know something is happening!
 
       if (selectedFile) {
@@ -36,9 +41,8 @@ export const DisplayInput = ({ updateData, updateImage, updateDisplayMsg, update
             const imageUrl = URL.createObjectURL(selectedFile);
             updateImage(imageUrl);
             updateData(parsedData);
-            console.info("Image complete:", parsedData);
             setSelectedFile(null);
-            updateLoading(false)//reset cursor
+            handleCursor(false)//reset cursor
           } catch (error) {
             console.error("Error processing file content:", error);
             updateDisplayMsg("There was an error.");
@@ -64,7 +68,7 @@ export const DisplayInput = ({ updateData, updateImage, updateDisplayMsg, update
         try {
           const parsedData = await getData(image);
           updateData(parsedData);
-          updateLoading(false)
+          handleCursor(false)
         } catch (error) {
           console.error("Error fetching data:", error);
           updateDisplayMsg("There was an error.");
@@ -80,7 +84,7 @@ export const DisplayInput = ({ updateData, updateImage, updateDisplayMsg, update
     updateData();
     e.preventDefault();
     try {
-      updateLoading(true)
+      handleCursor(true)
       updateDisplayMsg("Loading...");
       const image = await getRandom();
       setImage(image);
@@ -88,7 +92,7 @@ export const DisplayInput = ({ updateData, updateImage, updateDisplayMsg, update
         const parsedData = await getData(image);
         updateImage(image);
         updateData(parsedData);
-        updateLoading(false)
+        handleCursor(false)
       } catch (error) {
         console.error("Error fetching data:", error);
         updateDisplayMsg("There was an error.");
@@ -124,13 +128,13 @@ export const DisplayInput = ({ updateData, updateImage, updateDisplayMsg, update
       </div>
       <div className="flex flex row space-x-6 w-1/3 items-center justify-center">
         <button
-          className="inline-block w-1/3 px-2 py-1 font-semibold bg-[#0073cf] hover:bg-[#004a86] rounded-lg drop-shadow-md mt-2 md:mt-0 transition duration-500 ease-in-out delay-450"
+          className={`inline-block w-1/3 px-2 py-1 font-semibold bg-[#0073cf] hover:bg-[#004a86] rounded-lg drop-shadow-md mt-2 md:mt-0 transition duration-500 ease-in-out delay-450 ${cursorLoading ? 'cursor-progress' : ''}`}
           onClick={onRandomClick}
         >
           Roll Random
         </button>
         <button
-          className="inline-block w-1/3 px-2 py-1 font-semibold bg-[#0073cf] hover:bg-[#004a86] rounded-lg drop-shadow-md mt-2 md:mt-0 transition duration-500 ease-in-out delay-450"
+          className={`inline-block w-1/3 px-2 py-1 font-semibold bg-[#0073cf] hover:bg-[#004a86] rounded-lg drop-shadow-md mt-2 md:mt-0 transition duration-500 ease-in-out delay-450 ${cursorLoading ? 'cursor-progress' : ''}`}
           onClick={onButtonClick}
         >
           Run Service

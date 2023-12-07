@@ -61,19 +61,19 @@ export const DisplayCards = ({ userImage, data, displayMsg }) => {
   ).length;
   let gridColumns;
   if (numEntries === 0) {
-    gridColumns = "grid-cols-1 w-1/3 ";
+    gridColumns = "sm:grid-cols-1 w-1/3 ";
   } else if (numEntries === 1) {
-    gridColumns = "grid-cols-2 w-1/2 ";
+    gridColumns = "sm:grid-cols-2 w-1/2 ";
   } else if (numEntries === 2) {
     gridColumns = "sm:grid-cols-3 w-2/3";
   } else {
-    gridColumns = "lg:grid-cols-4 w-5/6";
+    gridColumns = "sm:grid-cols-3 lg:grid-cols-4 w-5/6";
   }
 
   return (
     <div className="flex flex-col md:flex-row items-center justify-center ">
       {carDb && data && userImage ? (
-        <div className={`grid ${gridColumns}  gap-4 pb-12`}>
+        <div className={`grid grid-cols-1 ${gridColumns}  gap-4 pb-12`}>
           <CarCard inputCar={inputCar} />
           {carDb
             ?.filter(

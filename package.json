@@ -1,8 +1,10 @@
 {
-  "name": "Mission 4",
+  "name": "cardb",
   "private": true,
   "version": "1.5.0",
   "type": "module",
+  "preferGlobal": true,
+  "bin": "./server/cli/commands.cjs",
   "scripts": {
     "server": "nodemon server/server.cjs",
     "seed": "node server/cli/commands.cjs seed ./server/data/seed.json",
