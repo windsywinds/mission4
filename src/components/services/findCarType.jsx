@@ -43,7 +43,12 @@ function findCarType(tagNames) {
     matchingCar = "hatchback";
   } else if (matchingCar === "family car" || matchingCar === "station wagon") {
     matchingCar = "wagon";
-  } else if (matchingCar === "pick up truck" || matchingCar === "truck" || matchingCar === "off road" || matchingCar === "all trail") {
+  } else if (
+    matchingCar === "pick up truck" ||
+    matchingCar === "truck" ||
+    matchingCar === "off road" ||
+    matchingCar === "all trail"
+  ) {
     matchingCar = "suv";
   }
   return matchingCar;

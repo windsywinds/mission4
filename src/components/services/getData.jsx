@@ -4,7 +4,7 @@ import { useState } from "react";
 const ApiKey = import.meta.env.VITE_API_KEY;
 const AzureEndpoint = import.meta.env.VITE_ENDPOINT_NAME;
 
-async function getData(image) {
+export async function getData(image) {
   try {
     const fetchOptions = {
       method: "POST",
@@ -29,4 +29,27 @@ async function getData(image) {
   }
 }
 
-export default getData;
+export async function getFileData(formData) {
+  try {
+    const fetchOptions = {
+      method: "POST",
+      headers: {
+        "Ocp-Apim-Subscription-Key": ApiKey,
+        "Content-Type": "application/octet-stream",
+      },
+      body: formData,
+    };
+
+    const response = await fetch(
+      `${AzureEndpoint}computervision/imageanalysis:analyze?api-version=2023-02-01-preview&features=tags,caption,denseCaptions,objects`,
+      fetchOptions,
+    );
+
+    console.log("Fetch complete");
+    const parsedData = await response.json();
+    return parsedData;
+  } catch (error) {
+    console.error("There is an error during fetch:", error);
+    throw error;
+  }
+}

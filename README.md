@@ -78,12 +78,15 @@ npm i
 VITE_API_KEY=< API_KEY >
 VITE_ENDPOINT_NAME=< https://your-end-point.cognitiveservices.azure.com >
 ```
+
 <h4>4. Ensure MongoDB is installed, and seed the database via the CLI with the below script or command in terminal.</h4> Alternatively you can use the "seedPath" command to define your own path. A full list of commands can be found using "node server/cli/commands.cjs help", or you can use the short cut "npm run cli <i>command</i>" e.g. "npm run cli help"
 
 ```sh
 npm run seed
 ```
+
 or
+
 ```sh
 node server/cli/commands.cjs seed ./server/data/seed.json
 ```
@@ -99,7 +102,6 @@ npm run server
 ```sh
 npm run dev
 ```
-
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

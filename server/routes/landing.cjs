@@ -1,10 +1,8 @@
 const express = require("express");
 const router = express.Router();
 
-
-
 router.get("/", (req, res) => {
-    const landPage = `
+  const landPage = `
     <!DOCTYPE html>
   <html lang="en">
     <head>
@@ -20,8 +18,8 @@ router.get("/", (req, res) => {
     </body>
   </html>
     `;
-  
-    res.send(landPage);
-  });
 
-  module.exports = router;
+  res.send(landPage);
+});
+
+module.exports = router;

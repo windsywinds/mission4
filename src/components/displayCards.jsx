@@ -10,7 +10,7 @@ export const DisplayCards = ({ userImage, data, displayMsg }) => {
     // Fetch car data from backend server as soon as the display cards are loaded so that the data can be used to match
     const fetchCarData = async () => {
       try {
-        const response = await fetch('http://localhost:8001/cardatabase');
+        const response = await fetch("http://localhost:8001/cardatabase");
         const carDbData = await response.json();
         setCarDbData(carDbData);
       } catch (error) {
@@ -21,8 +21,11 @@ export const DisplayCards = ({ userImage, data, displayMsg }) => {
     fetchCarData();
   }, []);
 
-  if (!data || !data.tagsResult || !data.tagsResult.values.some((item) => item.name === "car")) {
-    
+  if (
+    !data ||
+    !data.tagsResult ||
+    !data.tagsResult.values.some((item) => item.name === "car")
+  ) {
     return (
       <div>
         {displayCardsMsg ? (
@@ -64,7 +67,7 @@ export const DisplayCards = ({ userImage, data, displayMsg }) => {
   } else if (numEntries === 2) {
     gridColumns = "sm:grid-cols-3 w-2/3";
   } else {
-    gridColumns = "lg:grid-cols-4 w-3/4";
+    gridColumns = "lg:grid-cols-4 w-5/6";
   }
 
   return (
@@ -99,9 +102,9 @@ export const DisplayCards = ({ userImage, data, displayMsg }) => {
 
 export const CarCard = ({ inputCar }) => {
   return (
-    <div className="flex bg-slate-200 rounded-xl text-slate-900 overflow-hidden border-2 border-slate-800 drop-shadow-[0_15px_15px_rgba(0,0,0,0.85)]">
+    <div className="flex bg-slate-100 rounded-md text-slate-900 overflow-hidden border-[1px] border-slate-400 drop-shadow-[0_15px_15px_rgba(0,0,0,0.85)]">
       {inputCar.carImage && inputCar && (
-        <section className="flex flex-col px-4 py-4 ">
+        <section className="flex flex-col px-1.5 py-1.5 ">
           <img
             src={inputCar.carImage}
             alt={inputCar.carTitle}
@@ -124,6 +127,15 @@ export const CarCard = ({ inputCar }) => {
           <a href="#" className="text-xs font-semi-bold underline mt-auto">
             Tell us more to improve your matches &gt;&gt;{" "}
           </a>
+          <div className="flex flex-row justify-between text-sm pt-2">
+          <button className=" transition duration-500 ease-in-out delay-450 bg-none hover:border-[#004a86] hover:text-[#004a86] border-2 border-[#0073cf] text-[#0073cf] font-semibold rounded-md py-1 px-2">
+              Modify Search
+            </button>
+            <button className=" transition duration-500 ease-in-out delay-450 bg-[#0073cf] hover:bg-[#004a86] text-white font-semibold rounded-md py-1 px-2">
+              Trade in Quote
+            </button>
+          </div>
+          
         </section>
       )}
     </div>
@@ -143,9 +155,9 @@ export const MatchCard = ({
   }
 
   return (
-    <div className="h-full flex bg-slate-200 rounded-xl text-slate-900  overflow-hidden border-2 border-slate-800 drop-shadow-[0_15px_15px_rgba(0,0,0,0.85)]">
+    <div className="h-full flex bg-slate-100 rounded-md text-slate-900  overflow-hidden border-[1px] border-slate-400 drop-shadow-[0_15px_15px_rgba(0,0,0,0.85)]">
       {imgUrl && (
-        <section className="flex flex-col px-4 py-4">
+        <section className="flex flex-col px-1.5 py-1.5">
           <img
             src={imgUrl}
             alt={imgUrl}
@@ -172,6 +184,14 @@ export const MatchCard = ({
             ) : inputCar.carColor === carColor ? (
               <div>This car has a similar color!</div>
             ) : null}
+          </div>
+          <div className="flex flex-row justify-between text-sm pt-2">
+          <button className=" transition duration-500 ease-in-out delay-450 bg-none hover:border-[#006400] hover:text-[#006400] border-2 border-[#00b000] text-[#00b000] font-semibold rounded-md py-1 px-2">
+              Book a Test Drive
+            </button>
+            <button className=" transition duration-500 ease-in-out delay-450 bg-[#00b000] hover:bg-[#006400] text-white font-semibold rounded-md py-1 px-2">
+              View Car
+            </button>
           </div>
         </section>
       )}

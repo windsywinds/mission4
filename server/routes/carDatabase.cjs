@@ -12,14 +12,14 @@ const Car = mongoose.model("Car", carSchema);
 
 // Route to fetch all cars
 router.get("/", async (req, res) => {
-    console.log("A request was made")
+  console.log("A request was made");
   try {
     // Find all cars in the "cars" collection
     const data = await Car.find();
 
     // Respond with the data
     res.status(200).json(data);
-    console.log(data)
+    console.log(data);
   } catch (error) {
     // Handle errors
     console.error("Error fetching car data:", error);
